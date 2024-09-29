@@ -112,6 +112,9 @@ class CeleryConfig:
 
 CELERY_CONFIG = CeleryConfig
 
+# Custome logo and name
+APP_NAME="Guild Digital"
+
 FEATURE_FLAGS = {"ALERT_REPORTS": True, "SSH_TUNNELING":True}
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"
