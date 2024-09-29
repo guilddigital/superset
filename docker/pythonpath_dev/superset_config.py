@@ -114,6 +114,9 @@ CELERY_CONFIG = CeleryConfig
 
 # Custome logo and name
 APP_NAME="Guild Digital"
+APP_ICON = "/static/assets/guild/logo.png"
+APP_ICON_WIDTH = 200
+FAVICONS = [{"href": "/static/assets/guild/favicon.png"}]
 
 FEATURE_FLAGS = {"ALERT_REPORTS": True, "SSH_TUNNELING":True}
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True

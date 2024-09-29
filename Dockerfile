@@ -76,6 +76,9 @@ RUN mkdir -p ${PYTHONPATH} superset/static superset-frontend apache_superset.egg
     && chown -R superset:superset ./* \
     && rm -rf /var/lib/apt/lists/*
 
+# copy custome logo files
+COPY --chown=superset:superset to_be_copied/* /app/superset/static/assets/
+
 COPY --chown=superset:superset setup.py MANIFEST.in README.md ./
 # setup.py uses the version information in package.json
 COPY --chown=superset:superset superset-frontend/package.json superset-frontend/
