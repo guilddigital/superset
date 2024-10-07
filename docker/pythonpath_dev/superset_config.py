@@ -87,7 +87,14 @@ DATA_CACHE_CONFIG = {
     "CACHE_DEFAULT_TIMEOUT": 14400,
     "CACHE_REDIS_URL": "redis://redis:6379/0"  # 60 seconds * 60 minutes * 24 hours
 }
+# Custome
+# DISABLE CSRF, this need to be False when using the api from outside superset
+# Many issues are out there on this, and all suggestion lead to this at a moment
 TALISMAN_ENABLED = False
+WTF_CSRF_ENABLED = False
+CSRF_ENABLED = False
+#
+
 SQLALCHEMY_POOL_SIZE = 10
 SQLALCHEMY_MAX_OVERFLOW = 0
 SQLALCHEMY_POOL_TIMEOUT = 60
@@ -111,6 +118,12 @@ class CeleryConfig:
 
 
 CELERY_CONFIG = CeleryConfig
+SCREENSHOT_WAIT = 60  # Increase to 60 seconds or more if needed
+SUPERSET_WEBSERVER_TIMEOUT = 300  # Time in seconds, adjust based on dashboard complexity
+CACHE_DEFAULT_TIMEOUT = 60 * 60 * 24  # Cache for 24 hours
+
+
+
 
 # Custome logo and name
 APP_NAME="Guild Digital"
@@ -118,7 +131,9 @@ APP_ICON = "/static/assets/guild/logo.png"
 APP_ICON_WIDTH = 200
 FAVICONS = [{"href": "/static/assets/guild/favicon.png"}]
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True, "SSH_TUNNELING":True}
+FEATURE_FLAGS = {"ALERT_REPORTS": True, "SSH_TUNNELING":True, "DASHBOARD_VIRTUALIZATION":False, "HORIZONTAL_FILTER_BAR":True}
+#DASHBOARD_VIRTUALIZATION =False fixed the pdf download lwaving chats with the loader image
+
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"
 # The base URL for the email report hyperlinks.
